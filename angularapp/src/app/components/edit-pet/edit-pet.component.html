@@ -1,0 +1,63 @@
+<div class="main glassy-background">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-sm-12 my-3">
+                <form [formGroup]="petForm" (ngSubmit)="updatePet()" class="form">
+                    <h2 id="Add">Edit Pet</h2>
+                    <div class="form-group mb-3">
+                        <label for="name" class="A">Name:</label>
+                        <input type="text" id="name" formControlName="name" class="form-control" />
+                        <div *ngIf="petForm.get('name').invalid && petForm.get('name').touched" class="text-danger">
+                            Name is required.
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="species" class="A">Species:</label>
+                        <input type="text" id="species" formControlName="species" class="form-control" />
+                        <div *ngIf="petForm.get('species').invalid && petForm.get('species').touched"
+                            class="text-danger">
+                            Species is required.
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="breed" class="A">Breed:</label>
+                        <input type="text" id="breed" formControlName="breed" class="form-control" />
+                        <div *ngIf="petForm.get('breed').invalid && petForm.get('breed').touched" class="text-danger">
+                            Breed is required.
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="dateOfBirth" class="A">Date of Birth:</label>
+                        <input type="datetime-local" name="dateOfBirth" class="form-control" formControlName="dateOfBirth" /><br>
+                        <div *ngIf="form.dateOfBirth.touched">
+                            <span *ngIf="form.dateOfBirth.errors?.required" style="color: red;">DateOfBirth is
+                                required.</span>
+                            <span *ngIf="form.dateOfBirth.errors?.invalidDate" style="color: red;">Invalid Date.</span>
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="status" class="A">Status:</label>
+                        <input type="text" id="status" formControlName="status" class="form-control" />
+                        <div *ngIf="petForm.get('status').invalid && petForm.get('status').touched" class="text-danger">
+                            Status is required.
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <button type="submit" id="button" class="btn btn-primary">Update Pet</button>
+                        <button [routerLink]="['/user/pet/get-all']"  class="btn btn-danger">Cancel</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-6 col-sm-12">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <ngb-toast *ngIf="showToast" [autohide]="true" [delay]="2000" (hidden)="showToast = false">
+        <div class="toast-body">
+            {{ toastMessage }}
+            <div class="toast-timer"></div>
+        </div>
+    </ngb-toast>
+</div>

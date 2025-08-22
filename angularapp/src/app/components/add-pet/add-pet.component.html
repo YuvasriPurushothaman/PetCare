@@ -1,0 +1,61 @@
+<div class="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-12 text-center">
+                <img src="/assets/groupet-removebg-preview.png" alt="Pet Image" class="img-fluid image">
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="form-container">
+                    <h2 id="Add">Add Pet</h2>
+                    <form [formGroup]="petForm" (ngSubmit)="addPet()">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Name:</label>
+                            <input type="text" id="name" name="name" formControlName="name" class="form-control">
+                        </div>
+                        <div *ngIf="petForm.get('name').invalid && petForm.get('name').touched" class="error">
+                            <span *ngIf="petForm.get('name').errors.required" class="text-danger">Name is required.</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="species" class="form-label">Species:</label>
+                            <input type="text" id="species" name="species" formControlName="species" class="form-control">
+                        </div>
+                        <div *ngIf="petForm.get('species').invalid && petForm.get('species').touched" class="error">
+                            <span class="text-danger">Species is required.</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="breed" class="form-label">Breed:</label>
+                            <input type="text" id="breed" name="breed" formControlName="breed" class="form-control">
+                        </div>
+                        <div *ngIf="petForm.get('breed').invalid && petForm.get('breed').touched" class="error">
+                            <span class="text-danger">Breed is required.</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="dateOfBirth" class="form-label">Date Of Birth:</label>
+                            <input type="datetime-local" id="dateOfBirth" name="dateOfBirth" formControlName="dateOfBirth" class="form-control">
+                        </div>
+                        <div *ngIf="petForm.get('dateOfBirth').touched" class="error">
+                            <span *ngIf="petForm.get('dateOfBirth').errors?.required" class="text-danger">Date Of Birth is required.</span>
+                            <span *ngIf="petForm.get('dateOfBirth').errors?.invalidDate" class="text-danger">Invalid Date.</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="status" class="form-label">Status:</label>
+                            <input type="text" id="status" name="status" formControlName="status" class="form-control">
+                        </div>
+                        <div *ngIf="petForm.get('status').invalid && petForm.get('status').touched" class="error">
+                            <span class="text-danger">Status is required.</span>
+                        </div>
+                        <button type="submit" id="button" class="btn btn-custom mt-3">Add Pet</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <ngb-toast *ngIf="showToast" [autohide]="true" [delay]="2000" (hidden)="showToast = false">
+        <div class="toast-body">
+            {{ toastMessage }}
+            <div class="toast-timer"></div>
+        </div>
+    </ngb-toast>
+</div>

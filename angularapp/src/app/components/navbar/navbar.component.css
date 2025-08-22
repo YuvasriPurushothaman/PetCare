@@ -1,0 +1,107 @@
+.main {
+    position: absolute;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+} 
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    color: #412626;
+    font-weight: 700;
+}
+
+.title {
+    font-family: "Oleo Script", system-ui;
+    color: #412626;
+    font-weight: 300;
+    font-size: 36px;
+    letter-spacing: .41rem;
+}
+
+.links {
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 580;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.links:hover {
+    transform: scale(1.02);
+}
+
+.logo{
+    width:50px;
+    cursor: pointer; 
+    margin-bottom: 0.51rem;
+    margin-right: 1.5px;
+    transform: rotate(-30deg);
+}
+
+@media (max-width: 500px) {
+    .title {
+        font-size: 28px;
+    }
+    .logo{
+        width:30px;
+        cursor: pointer; 
+        margin-bottom: 0.31rem;
+        margin-right: 1px;
+        transform: rotate(-30deg);
+    }
+    .navbar-toggler{
+        border: none;
+        outline: none;
+    }
+    .navbar-toggler-icon{
+        width: 25px;
+    }
+}
+
+.dropdown-menu {
+    display: none;
+    background-color: rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(188, 184, 184, 0.5);
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+}
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-item {
+    padding: 10px 20px; /* Padding for items */
+    color: #412626; /* Text color */
+    font-weight: 600;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.6); /* Hover background color */
+    color: #412626; /* Hover text color */
+}
+
+.toast-container .ngb-toast {
+    background-color: #87CEEB;
+    color: white;
+  }
+  
+  .toast-timer {
+    height: 4px;
+    background-color: #00BFFF;
+    animation: toast-timer 2s linear forwards;
+    margin-top: 5px;
+  }
+  
+  @keyframes toast-timer {
+    from {
+      width: 100%;
+    }
+    to {
+      width: 0;
+    }
+  }

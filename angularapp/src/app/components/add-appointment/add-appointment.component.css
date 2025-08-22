@@ -1,0 +1,88 @@
+.main{
+    padding-top: 90px;
+    background: linear-gradient(to right, rgb(180, 207, 221), #879cc7); 
+}
+
+.form-group {
+    background: rgba(255, 255, 255, 0.494);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0px 30px;
+}
+
+label {
+    font-weight: bold;
+    color: #333;
+}
+
+select, input[type="date"], input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #458ead;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #66b5da;
+}
+
+.img-fluid {
+    max-width: 100%;
+    min-width: 250px;
+    max-height: 400px;
+    border-radius: 10px;
+}
+
+.toast-container .ngb-toast {
+    background-color: #87CEEB;
+    color: white;
+  }
+  
+  .toast-timer {
+    height: 4px;
+    background-color: #00BFFF;
+    animation: toast-timer 2s linear forwards;
+    margin-top: 5px;
+  }
+  
+  @keyframes toast-timer {
+    from {
+      width: 100%;
+    }
+    to {
+      width: 0;
+    }
+  }
+
+@media (max-width:500) {
+    .form-group {
+        background: rgba(255, 255, 255, 0.494);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin: 0px 10px;
+    }
+}
+@media (max-width:1000) {
+    .form-group {
+        background: rgba(255, 255, 255, 0.494);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin: 0px 20px;
+    }
+}

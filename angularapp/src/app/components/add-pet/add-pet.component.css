@@ -1,0 +1,95 @@
+.main {
+    padding-top: 90px;
+    padding-bottom: 30px;
+    background: linear-gradient(to right, rgb(180, 207, 221), #879cc7); 
+}
+.form-container {
+    background-color: #35576c3c;
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 20px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.form-label {
+    flex: 1;
+    margin-bottom: 0;
+}
+.form-control {
+    flex: 2;
+    padding: 10px;
+    margin-left: 10px;
+}
+.btn-custom {
+    color: #fff;
+    padding: 10px 20px;
+    background-color: #42677e36;
+    background-image: radial-gradient(93% 87% at 87% 89%, rgba(0, 0, 0, 0.23) 0%, transparent 86.18%), radial-gradient(66% 66% at 26% 20%, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%);
+    box-shadow: inset -3px -3px 9px rgba(255, 255, 255, 0.25), inset 0px 3px 9px rgba(255, 255, 255, 0.3), inset 0px 1px 1px rgba(255, 255, 255, 0.6), inset 0px -8px 36px rgba(0, 0, 0, 0.3), inset 0px 1px 5px rgba(255, 255, 255, 0.6), 2px 19px 31px rgba(0, 0, 0, 0.2);
+    border-radius: 14px;
+    font-weight: bold;
+    font-size: 16px;
+    border: 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.btn-custom:hover {
+    background-color: #486c7d;
+    transform: scale(1.05);
+}
+.image {
+    margin-top: 20px;
+}
+#Add {
+    text-align: center;
+    color: #412626;
+    font-family: "Oleo Script", system-ui;
+}
+.text-danger {
+    color: red;
+}
+.error{
+    text-align: center;
+    margin-bottom: 15px;
+}
+@media (max-width: 768px) {
+    .form-container {
+        margin-top: 10px;
+    }
+    .btn-custom {
+        width: 100%;
+    }
+}
+.toast-container .ngb-toast {
+    background-color: #87CEEB;
+    color: white;
+}
+.toast-timer {
+    height: 4px;
+    background-color: #00BFFF;
+    animation: toast-timer 2s linear forwards;
+    margin-top: 5px;
+}
+@media (max-width: 480px) {
+    .form-container {
+        padding: 10px;
+    }
+    .btn-custom {
+        font-size: 14px;
+    }
+}
+@keyframes toast-timer {
+    from {
+        width: 100%;
+    }
+    to {
+        width: 0;
+    }
+}

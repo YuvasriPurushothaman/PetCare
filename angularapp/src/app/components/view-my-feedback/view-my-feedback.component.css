@@ -1,0 +1,118 @@
+.bg-custom {
+  background-color: rgba(92, 118, 154, 0.789);
+  background-image: url('/assets/bg.png');
+  background-size: cover;
+  background-position: center;
+  min-height: 95vh;
+}
+
+
+.bg-custom {
+  background-image: url('/assets/bg.png');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  /* Full height */
+}
+
+.table-image {
+  position: absolute;
+  width: auto;
+  max-width: 250px;
+  max-height: 150px;
+  display: block;
+  top:41;
+  left: 41%;
+}
+
+table {
+  border-collapse: collapse;
+  width: 80%;
+  max-width: 600px;
+  margin-top: 20px;
+  background-color:rgba(21, 18, 18, 0.743) ;
+}
+
+th {
+  background-color: rgba(242, 242, 242, 0.8);
+  padding: 10px;
+}
+
+td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+tbody tr:hover {
+  background-color: rgba(249, 249, 249, 0.8);
+  /* Slightly transparent hover effect */
+  transition: background-color 0.3s;
+  /* Smooth transition */
+}
+
+h2 {
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  color: rgb(22, 18, 18);
+  /* Ensure visibility against the background */
+}
+
+.delete-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.7); /* Black glassy background */
+  color: white;
+  padding: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none; /* Hide by default */
+}
+
+.card:hover .delete-icon {
+  display: block; /* Show on hover */
+}
+
+/* CSS */
+.button-8 {
+  background-color: #e1ecf4;
+  border-radius: 3px;
+  border: 1px solid #7aa7c7;
+  box-shadow: rgba(255, 255, 255, .7) 0 1px 0 0 inset;
+  box-sizing: border-box;
+  color: #39739d;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.15385;
+  margin: 0;
+  outline: none;
+  padding: 8px .8em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+.button-8:hover,
+.button-8:focus {
+  background-color: #b3d3ea;
+  color: #2c5777;
+}
+
+.button-8:focus {
+  box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+}
+
+.button-8:active {
+  background-color: #a0c7e4;
+  box-shadow: none;
+  color: #2c5777;
+}

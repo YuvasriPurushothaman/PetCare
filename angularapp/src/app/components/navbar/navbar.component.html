@@ -1,0 +1,78 @@
+<nav class="navbar navbar-expand-lg py-1 ps-1 pe-3 m-0 main">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+        <div [routerLink]="['/']" class="m-0 p-0">
+            <img src="assets/logo.png" alt="logo" class="logo">
+            <a class="navbar-brand title">PawsitiveVets</a>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+            aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                <!-- User -->
+                <li class="nav-item dropdown mx-2 links" *ngIf="isPetOwner">
+                    <a class="nav-link" style="margin-top: -9px;">Pets</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" [routerLink]="['/user/pet/get-all']">Petlist</a></li>
+                        <li><a class="dropdown-item" [routerLink]="['/user/pet/add-pet']">Add Pet</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown mx-2 links" *ngIf="isPetOwner">
+                    <a class="nav-link" style="margin-top: -9px;">Appointment</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" [routerLink]="['/user/appointment/add-appointment']">Add Appointment</a></li>
+                        <li><a class="dropdown-item" [routerLink]="['/user/appointment/view-appointment']">View Appointments</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item mx-2 links">
+                    <a [routerLink]="['/user-pet-data/view-records']" *ngIf="isPetOwner">Treatment History</a>
+                </li>
+                <li class="nav-item mx-2 links">
+                    <a [routerLink]="['/user/feedback/view-feedback']" *ngIf="isPetOwner">Feedbacks</a>
+                </li>
+                <!-- Admin -->
+                <li class="nav-item mx-2 links">
+                    <a [routerLink]="['/hospital/appointment/view-all-appointment']" *ngIf="isAdmin">Appointments</a>
+                </li>
+                <li class="nav-item mx-2 links">
+                    <a [routerLink]="['/hospital-data/view-records']" *ngIf="isAdmin">Treatment History</a>
+                </li>
+                <li class="nav-item mx-2 links">
+                    <a [routerLink]="['/hospital/feedback/view-all-feedback']" *ngIf="isAdmin">Feedbacks</a>
+                </li>
+                <li class="nav-item mx-2 links">
+                    <a [routerLink]="['/admin/generate-code']" *ngIf="isAdmin">Generate Code</a>
+                </li>
+                <li class="nav-item mx-2 links">
+                    <a [routerLink]="['/register']" *ngIf="!isLoggedIn">Register</a>
+                </li>
+                <li class="nav-item mx-2 links">
+                    <a [routerLink]="['/login']" *ngIf="!isLoggedIn">Login</a>
+                </li>
+                <li class="nav-item mx-2 links">
+                    <a [routerLink]="['/about-us']">About Us</a>
+                </li>
+                <li class="nav-item mx-2 links">
+                    <a [routerLink]="['/contact-us']">Contact Us</a>
+                </li>
+                <li class="nav-item dropdown mx-2" *ngIf="isLoggedIn">
+                    <a class="nav-link" (mouseover)="toggleUserDropdown(true)" (mouseleave)="toggleUserDropdown(false)" style="margin-top: -8px;">
+                        <i class="fa-solid fa-circle-user"></i> Hi, {{ displayName }}
+                    </a>
+                    <ul class="dropdown-menu" [class.show]="isUserDropdownOpen">
+                        <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <ngb-toast *ngIf="showToast" [autohide]="true" [delay]="2000" (hidden)="showToast = false">
+      <div class="toast-body">
+        {{ toastMessage }}
+        <div class="toast-timer"></div>
+      </div>
+    </ngb-toast>
+</div>

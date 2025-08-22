@@ -1,0 +1,25 @@
+<div class="main">
+    <div class="generate-code-container">
+        <h2>Generate Invitation Code</h2>
+        <button class="generate-code-button" (click)="generateInvitationCode()">Generate Code</button>
+        <div *ngIf="generatedCode && isOpen" class="code-container">
+            <p>Generated Invitation Code: {{ generatedCode }}</p>
+            <button class="copy-button" (click)="copyCode()">
+                <i class="fas fa-copy copy-icon"></i>
+            </button>
+        </div>
+        <div class="action-buttons">
+            <button class="action-button close-button" (click)="close()">Close</button>
+            <button class="action-button view-button" (click)="open()">View</button>
+        </div>
+    </div>
+</div>
+
+<div class="toast-container position-fixed top-0 end-0 p-3">
+    <ngb-toast *ngIf="showToast" [autohide]="true" [delay]="2000" (hidden)="showToast = false">
+        <div class="toast-body">
+            Code copied to clipboard!
+            <div class="toast-timer"></div>
+        </div>
+    </ngb-toast>
+</div>

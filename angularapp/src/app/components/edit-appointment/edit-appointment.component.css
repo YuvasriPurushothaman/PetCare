@@ -1,0 +1,64 @@
+.main{
+    width: 100%;
+    min-height: 95vh;
+    background-image: url("/assets/backgrounds/edit-appointment.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 100px;
+    padding-bottom: 30px;
+}
+.form-control{
+    margin-top: 20px;
+    background-color: #7092b47b;
+    color: rgb(9, 89, 69);
+    padding: 20px;
+}
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+input[type="date"],
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+small {
+    display: block;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+button[disabled] {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+button[type="button"] {
+    background-color: #6c757d;
+}
+
+button:hover:not([disabled]) {
+    background-color: #0056b3;
+}
+
+button[type="button"]:hover {
+    background-color: #5a6268;
+}

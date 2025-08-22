@@ -1,0 +1,128 @@
+<div class="main">
+    <div class="container">
+        <div class="row d-flex justify-content-center align-items-center">
+            <h3 class="text-center fs-3 mt-3 mb-0" style="font-family: Oleo Script, serif;">Welcome to <span class="fw-bold fs-1" style="color: #325870;">PawsitiveVets</span></h3>
+            <p class="fw-semibold text-center mt-0 pt-0" style="color: #3258709d;">Where Every Pet Feels Pawsitively Loved</p>
+            <div class="col-md-6 col-sm-12 cont mb-4">
+                <h1 class="text-center text-white mt-3">Registration</h1>
+                <form class="form-group" [formGroup]="registerForm" (ngSubmit)="register()">
+                    <div class="mb-3">
+                        <label class="form-label"><b>Username</b><span class="text-danger">*</span></label>
+                        <input class="form-control bg-light" formControlName="username"
+                            placeholder="Enter the username">
+                        <span class="text-danger"
+                            *ngIf="registerForm.get('username').touched && registerForm.get('username').invalid">Username
+                            is
+                            required</span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label"><b>Email</b><span class="text-danger">*</span></label>
+                        <input class="form-control bg-light" formControlName="email" placeholder="Enter the email">
+                        <div *ngIf="registerForm.get('email').touched && registerForm.get('email').invalid">
+                            <span class="text-danger" *ngIf="registerForm.get('email').errors.required">Email is
+                                required</span>
+                            <span class="text-danger" *ngIf="registerForm.get('email').errors.email">Email is not
+                                valid</span>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label"><b>Password</b><span class="text-danger">*</span></label>
+                        <div class="password-container">
+                            <input [type]="hidePwd ? 'password' : 'text'" class="form-control bg-light"
+                                formControlName="password" placeholder="Enter the password">
+                            <img class="toggle-password" [src]="hidePwd ? '/assets/striked-eye.png' : '/assets/eye.png'"
+                                (click)="toggleVisibility()">
+                        </div>
+                        <div *ngIf="registerForm.get('password').touched && registerForm.get('password').invalid">
+                            <span class="text-danger" *ngIf="registerForm.get('password').errors.required">Password is
+                                required</span>
+                        </div>
+                        <span class="text-danger"
+                            *ngIf="registerForm.get('password').touched && !isPasswordComplex()">Password should contain
+                            at
+                            least 1 uppercase, lowercase, special character, and digit, and be at least 8 characters
+                            long</span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label"><b>Confirm Password</b><span class="text-danger">*</span></label>
+                        <div class="confirmPassword-container">
+                            <input [type]="hideConfirmPwd ? 'password' : 'text'" class="form-control bg-light"
+                                (input)="passwordEqualCheck()" formControlName="confirmPassword"
+                                placeholder="Enter password again">
+                            <img class="toggle-password"
+                                [src]="hideConfirmPwd ? '/assets/striked-eye.png' : '/assets/eye.png'"
+                                (click)="toggleConfirmPasswordVisibility()">
+                        </div>
+                        <div
+                            *ngIf="registerForm.get('confirmPassword').touched && registerForm.get('confirmPassword').invalid">
+                            <span class="text-danger"
+                                *ngIf="registerForm.get('confirmPassword').errors.required">Password
+                                is required</span>
+                        </div>
+                        <span class="text-danger"
+                            *ngIf="registerForm.get('confirmPassword').touched && isMismatch">Should
+                            be the same as password</span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label"><b>Mobile Number</b><span class="text-danger">*</span></label>
+                        <input class="form-control bg-light" formControlName="mobileNumber"
+                            placeholder="Enter the Mobile Number">
+                        <div
+                            *ngIf="registerForm.get('mobileNumber').touched && registerForm.get('mobileNumber').invalid">
+                            <span class="text-danger" *ngIf="registerForm.get('mobileNumber').errors.required">Mobile
+                                Number
+                                is required</span>
+                            <span class="text-danger"
+                                *ngIf="registerForm.get('mobileNumber').errors.minlength || registerForm.get('mobileNumber').errors.maxlength">Mobile
+                                Number should have 10 digits</span>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label"><b>Role</b><span class="text-danger">*</span></label>
+                        <select class="form-select bg-light" formControlName="userRole" (change)="onRoleChange()">
+                            <option selected value=''>Select Role</option>
+                            <option value="Hospital Admin">Hospital Admin</option>
+                            <option value="Pet Owner">Pet Owner</option>
+                        </select>
+                        <span class="text-danger"
+                            *ngIf="registerForm.get('userRole').touched && registerForm.get('userRole').value===''">Should
+                            select role</span>
+                    </div>
+                    <div *ngIf="isHospitalAdmin" class="mb-3">
+                        <label class="form-label"><b>Invitation Code</b><span class="text-danger">*</span></label>
+                        <div class="invitation-code-container">
+                            <input [type]="hideInvitationCode ? 'password' : 'text'" class="form-control"
+                                formControlName="invitationCode" placeholder="Enter the invitation code">
+                            <img class="toggle-invitation-code"
+                                [src]="hideInvitationCode ? '/assets/striked-eye.png' : '/assets/eye.png'"
+                                (click)="toggleInvitationCodeVisibility()">
+                        </div>
+                        <span class="text-danger"
+                            *ngIf="registerForm.get('invitationCode').touched && registerForm.get('invitationCode').invalid">Invitation
+                            code is required</span>
+                    </div>
+                    <button class="register" type="submit"><b>Register</b></button>
+                    <div class="text-center mt-3">
+                        <p class="text-white d-inline">Already a user?</p><a id="clickToLogin"
+                            [routerLink]="['/login']">
+                            <b>Click here to login!</b></a>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-6 col-sm-12 mb-4">
+                <p class="fw-semibold text-center" style="font-family: Open Sans, serif;">Register now to access our top-notch veterinary services and ensure your pets' health and happiness.
+                    We
+                    look forward to meeting you and your furry friends!</p>
+                <img src="/assets/dogwithdoctor.png" alt="Register Image" width="100%">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <ngb-toast *ngIf="showToast" [autohide]="true" [delay]="2000" (hidden)="showToast = false">
+        <div class="toast-body">
+            {{ toastMessage }}
+            <div class="toast-timer"></div>
+        </div>
+    </ngb-toast>
+</div>

@@ -1,0 +1,127 @@
+.main {
+    background-image: url('/assets/secretcode.jpg');
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    color: #333;
+    padding-top: 110px;
+    height: 94vh;
+    margin-bottom: 0px;
+}
+
+.generate-code-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.generate-code-button {
+    background-color: #87CEEB;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin: 10px 5px;
+}
+
+.generate-code-button:hover {
+    background-color: #00BFFF;
+    transform: scale(1.05);
+}
+
+.generate-code-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(135, 206, 235, 0.5);
+}
+
+.code-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.copy-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.copy-icon {
+    font-size: 24px;
+    color: #333;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.action-button {
+    background-color: #87CEEB;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 8px 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.action-button:hover {
+    background-color: #00BFFF;
+    transform: scale(1.05);
+}
+
+.action-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(135, 206, 235, 0.5);
+}
+
+.close-button {
+    background-color: #FF6347;
+}
+
+.close-button:hover {
+    background-color: #FF4500;
+}
+
+.view-button {
+    background-color: #32CD32;
+}
+
+.view-button:hover {
+    background-color: #228B22;
+}
+
+.toast-container .ngb-toast {
+    background-color: #87CEEB;
+    color: white;
+}
+
+.toast-timer {
+    height: 4px;
+    background-color: #00BFFF;
+    animation: toast-timer 1.5s linear forwards;
+    margin-top: 5px;
+}
+
+@keyframes toast-timer {
+    from {
+        width: 100%;
+    }
+    to {
+        width: 0;
+    }
+}

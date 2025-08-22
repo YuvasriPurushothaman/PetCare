@@ -1,0 +1,19 @@
+<body class="bg-custom">
+    <h2 style="padding-top: 80px;" class="my-3">My Feedback Records</h2>
+    <div class="container d-flex justify-content-center flex-wrap mt-4" *ngIf="feedbacks?.length > 0">
+        <div class="card m-2 position-relative" style="width: 18rem; background-color: rgba(240, 248, 255, 0.672);"
+            *ngFor="let feedback of feedbacks; let i = index">
+            <div class="card-body">
+                <p class="card-text fs-4">
+                    <span *ngFor="let star of [].constructor(feedback.rating)">🐶</span>
+                </p>
+                <p class="fs-5 card-text">{{ feedback.message }}</p>
+            </div>
+            <i class="fas fa-trash-alt delete-icon" (click)="deleteFeedback(feedback.feedbackId)"></i>
+        </div>
+    </div>
+    <div class="text-center" *ngIf="feedbacks?.length == 0">
+        <img src="assets/backgrounds/nodata.png" alt="nodata" style="max-width: 500px;">
+        <p class="fs-4 fw-semibold" style="color: rgb(66, 66, 119);">No feedback found!!!</p>
+    </div>
+</body>

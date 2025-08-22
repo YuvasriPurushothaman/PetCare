@@ -1,0 +1,72 @@
+.main {
+    background: linear-gradient(to right, rgb(180, 207, 221), #879cc7);
+    width: 100%;
+    min-height: 95vh;
+    padding-top: 90px;
+}
+
+.petlist {
+    color: #412626;
+    font-weight: 500;
+    font-family: "Oleo Script", system-ui;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.btn {
+    font-size: 12px;
+    margin: 5px;
+    width: 100px;
+}
+
+.image-container {
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .btn {
+        width: 80px;
+    }
+
+    .image-container {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn {
+        font-size: 10px;
+        width: 70px;
+    }
+
+    .image-container {
+        margin-bottom: 20px;
+    }
+}
+
+.toast-container .ngb-toast {
+    background-color: #87CEEB;
+    color: white;
+}
+
+.toast-timer {
+    height: 4px;
+    background-color: #00BFFF;
+    animation: toast-timer 2s linear forwards;
+    margin-top: 5px;
+}
+
+@keyframes toast-timer {
+    from {
+        width: 100%;
+    }
+
+    to {
+        width: 0;
+    }
+}
+
+.custom-pagination {
+    display: flex;
+    justify-content: center;
+}

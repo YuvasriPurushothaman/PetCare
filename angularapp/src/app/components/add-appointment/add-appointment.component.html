@@ -1,0 +1,43 @@
+<div class="main">
+  <div class="container">
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col-md-6 col-sm-12 text-center mt-5 mb-3">
+        <h4 class="fs-4">We know your pet's health is important to you</h4>
+        <p class="fs-5 fw-semibold">Booking an appointment with us is easy, ensuring your pet gets the care they deserve.</p>
+        <img src="assets/appointment-image.png" alt="appointment-image" class="img-fluid">
+      </div>
+      <div class="col-md-6 col-sm-12 pb-3">
+        <form [formGroup]="appointmentForm" (ngSubmit)="addNewAppointment()" class="form-group">
+          <label>Select a Pet</label>
+          <select formControlName="petName" (change)="getPet($event.target.value)">
+            <option *ngFor="let pet of pets" [value]="pet.petId">{{pet.name}}</option>
+          </select><br>
+          <div *ngIf="f.petName.invalid && f.petName.touched">
+            <small *ngIf="f.petName.errors.required" style="color:red">Pet is required</small>
+          </div><br>
+          <label>Date</label>
+          <input type="date" formControlName="appointmentDate" [min]="minDate" /><br>
+          <div *ngIf="f.appointmentDate.invalid && f.appointmentDate.touched">
+            <small *ngIf="f.appointmentDate.errors.required" style="color:red">Date is Required</small>
+            <small *ngIf="f.appointmentDate.errors.min" style="color:red">Cannot select past dates</small>
+          </div>
+          <br>
+          <label>Reason</label>
+          <input type="text" formControlName="reason"><br>
+          <div *ngIf="f.reason.invalid && f.reason.touched">
+            <small *ngIf="f.reason.errors.required" style="color:red">Reason is required</small>
+          </div><br>
+          <button type="submit">Book Appointment</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <ngb-toast *ngIf="showToast" [autohide]="true" [delay]="2000" (hidden)="showToast = false">
+    <div class="toast-body">
+      {{ toastMessage }}
+      <div class="toast-timer"></div>
+    </div>
+  </ngb-toast>
+</div>

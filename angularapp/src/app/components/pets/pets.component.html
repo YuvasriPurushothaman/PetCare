@@ -1,0 +1,46 @@
+<div class="main">
+    <div class="container">
+        <h2 class="petlist pb-0 mb-0">Pet List</h2>
+        <input type="text" class="form-control mb-4" style="min-width: 300px; max-width: 450px;"
+        placeholder="Search..." [(ngModel)]="searchQuery" (input)="searchPets()">
+        <div class="row" *ngIf="filteredPets.length>0">
+            <div class="col">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6"
+                        *ngFor="let pet of filteredPets.slice((page - 1) * pageSize, page * pageSize); let i = index">
+                        <div class="card shadow mb-4" style="background-color: rgba(170, 192, 198, 0.206);">
+                            <div class="card-body">
+                                <p class="card-title fs-4 fw-bold text-center">{{pet.name}}</p>
+                                <p class="card-text"><strong>Species:</strong> {{pet.species}}</p>
+                                <p class="card-text"><strong>Breed:</strong> {{pet.breed}}</p>
+                                <p class="card-text"><strong>Date Of Birth:</strong> {{pet.dateOfBirth}}</p>
+                                <p class="card-text"><strong>Status:</strong> {{pet.status}}</p>
+                                <div class="text-center">
+                                    <button class="btn btn-danger btn-sm"
+                                        (click)="deletePetById(pet.petId)"
+                                        [disabled]="pet.hasAppointment">Delete</button>
+                                    <button class="btn btn-success btn-sm"
+                                        [routerLink]="['/user/pet/edit-pet/', pet.petId]">Edit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <ngb-pagination class="justify-content-center custom-pagination" [collectionSize]="filteredPets.length"
+                    [(page)]="page" [pageSize]="pageSize"></ngb-pagination>
+            </div>
+        </div>
+        <div class="text-center" *ngIf="filteredPets.length==0">
+            <img src="assets/backgrounds/nodata.png" alt="nodata" style="max-width: 500px;">
+            <p class="fs-4 fw-semibold" style="color: rgb(66, 66, 119);">No pets found!!!</p>
+        </div>
+    </div>
+</div>
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <ngb-toast *ngIf="showToast" [autohide]="true" [delay]="2000" (hidden)="showToast = false">
+        <div class="toast-body">
+            {{ toastMessage }}
+            <div class="toast-timer"></div>
+        </div>
+    </ngb-toast>
+</div>

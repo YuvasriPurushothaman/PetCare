@@ -1,0 +1,58 @@
+<div class="main">
+    <h3 class="text-center">Appointment Details</h3>
+    <div class="container py-4" *ngIf="filteredAppointments?.length>0">
+        <input type="text" class="form-control mb-4" style="min-width: 250px; max-width: 400px;" placeholder="Search..."
+            [(ngModel)]="searchQuery" (input)="searchAppointments()">
+        <div class="row">
+            <div class="col-md-4"
+                *ngFor="let appointment of filteredAppointments.slice((page - 1) * pageSize, page * pageSize); let i = index">
+                <div class="card mb-4">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title text-center">{{ appointment.pet.name }}</h5>
+                        <p class="card-text"><strong>Appointment Date:</strong> {{
+                            appointment.appointmentDate.toString().split('T')[0] }}</p>
+                        <p class="card-text"><strong>Reason for Appointment:</strong> {{ appointment.reason }}</p>
+                        <p><strong style="color:black">Status:</strong>
+                            <span class="card-text" [ngStyle]="{
+                  'color': appointment.status === 'pending' ? 'orange' :
+                  appointment.status === 'accepted' ? 'blue' :
+                  appointment.status === 'rejected' ? 'red' :
+                  appointment.status === 'completed' ? 'green' : 'black',
+                  'font-weight': 'bold'
+                }">
+                                {{ appointment.status }}
+                            </span>
+                        </p>
+                        <div class="mt-auto text-center" *ngIf="appointment.status === 'pending'; else otherActions">
+                            <button [routerLink]="['/user/appointment/edit-appointment/', appointment.appointmentId]"
+                                class="btn btn-warning">Edit</button>
+                            <button class="btn btn-danger" (click)="delete(appointment.appointmentId)">Delete</button>
+                        </div>
+                        <ng-template #otherActions>
+                            <div *ngIf="appointment.status === 'completed' && !appointment.hasFeedback"
+                                class="mt-auto text-center">
+                                <button (click)="addFeedback(appointment.appointmentId, appointment.user.userId)"
+                                    class="btn btn-success w-100">Add Feedback</button>
+                            </div>
+                        </ng-template>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ngb-pagination class="justify-content-center custom-pagination" [collectionSize]="filteredAppointments.length"
+            [(page)]="page" [pageSize]="pageSize"></ngb-pagination>
+    </div>
+    <div class="text-center" *ngIf="filteredAppointments?.length==0">
+        <img src="assets/backgrounds/nodata.png" alt="nodata" style="max-width: 500px;">
+        <p class="fs-4 fw-semibold" style="color: rgb(66, 66, 119);">No records found!!!</p>
+    </div>
+</div>
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <ngb-toast *ngIf="showToast" [autohide]="true" [delay]="2000" (hidden)="showToast = false">
+        <div class="toast-body">
+            {{ toastMessage }}
+            <div class="toast-timer"></div>
+        </div>
+    </ngb-toast>
+</div>

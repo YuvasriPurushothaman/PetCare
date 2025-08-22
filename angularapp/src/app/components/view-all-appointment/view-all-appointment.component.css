@@ -1,0 +1,48 @@
+.main {
+  padding-top: 110px;
+  min-height: 95vh;
+  background: linear-gradient(to right, rgb(190, 205, 211), #8b9dbee0); 
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 30vw;
+}
+
+.toast-container .ngb-toast {
+  background-color: #87CEEB;
+  color: white;
+}
+
+.toast-timer {
+  height: 4px;
+  background-color: #00BFFF;
+  animation: toast-timer 2s linear forwards;
+  margin-top: 5px;
+}
+
+@keyframes toast-timer {
+  from {
+    width: 100%;
+  }
+
+  to {
+    width: 0;
+  }
+}
+

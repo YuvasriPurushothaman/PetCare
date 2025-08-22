@@ -1,0 +1,76 @@
+.main {
+    background-image: url('/assets/editpetbgblack.jpg');
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 100%;
+    min-height: 95vh;
+    padding-top: 90px;
+}
+
+.form {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.A {
+    color: whitesmoke;
+}
+
+input,
+.form-control {
+    border: 2px solid whitesmoke;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: black;
+}
+
+#button {
+    background-color: rgb(58, 46, 48);
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#button:hover {
+    background-color: rgb(49, 41, 42);
+    color: rgb(254, 254, 254);
+}
+
+#Add {
+    color: orange;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.toast-container .ngb-toast {
+    background-color: #87CEEB;
+    color: white;
+}
+
+.toast-timer {
+    height: 4px;
+    background-color: #00BFFF;
+    animation: toast-timer 2s linear forwards;
+    margin-top: 5px;
+}
+
+@keyframes toast-timer {
+    from {
+        width: 100%;
+    }
+
+    to {
+        width: 0;
+    }
+}

@@ -1,0 +1,15 @@
+.doctorImg {
+    width: 260px;
+    height: 240px;
+    filter: grayscale(100%);
+    transition: filter 0.3s;
+}
+
+.doctorImg:hover {
+    filter: grayscale(0%);
+    cursor: pointer;
+}
+
+.title{
+    padding-top: 90px;
+}

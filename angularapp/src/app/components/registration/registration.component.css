@@ -1,0 +1,158 @@
+.main {
+    margin: 0;
+    padding-top: 90px;
+    min-height: 95vh;
+    background: linear-gradient(to right, rgb(180, 207, 221), #879cc7);
+}
+
+.cont {
+    background: #879cc79b;
+    border-radius: 20px;
+}
+
+label {
+    color: white;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-label {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-control,
+.form-select {
+    font-size: 14px;
+    padding: 6px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+img.top-image {
+    width: 100%;
+    max-width: 150px;
+    display: block;
+    position: absolute;
+    top: 79px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+
+button.register {
+    margin-top: 10px;
+    background-color: rgb(110, 128, 169);
+    border: none;
+    color: black;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    margin: 10px auto;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+button.register:hover {
+    background-color: rgb(116, 126, 189);
+}
+
+#clickToLogin {
+    font-size: 14px;
+    text-decoration: none;
+    color: #d5e4f8;
+}
+
+#clickToLogin:hover {
+    cursor: pointer;
+    color: #032859;
+}
+
+
+.password-container {
+    position: relative;
+}
+
+
+.confirmPassword-container {
+    position: relative;
+}
+
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 20px;
+    height: 15px;
+}
+
+.invitation-code-container {
+    position: relative;
+}
+.invitation-code-container input {
+    background-color: #0328596d;
+    border: 2px solid #2f4675;
+}
+
+.invitation-code {
+    background-color: #a6cfd4;
+    border: 2px solid transparent;
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    transition: background-color 0.3s, box-shadow 0.3s, border 0.3s;
+    box-shadow: 0 0 10px rgba(3, 169, 244, 0.5);
+}
+
+.invitation-code:focus {
+    background-color: #b2ebf2;
+    box-shadow: 0 0 15px rgba(3, 169, 244, 0.7);
+    border: 2px solid #a6e9f2;
+}
+
+.toggle-invitation-code {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    transition: transform 0.3s;
+    width: 20px;
+    height: 15px;
+}
+
+.toggle-invitation-code:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
+.toast-container .ngb-toast {
+    background-color: #87CEEB;
+    color: white;
+}
+
+.toast-timer {
+    height: 4px;
+    background-color: #00BFFF;
+    animation: toast-timer 2s linear forwards;
+    margin-top: 5px;
+}
+
+@keyframes toast-timer {
+    from {
+        width: 100%;
+    }
+
+    to {
+        width: 0;
+    }
+}

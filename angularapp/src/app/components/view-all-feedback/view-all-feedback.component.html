@@ -1,0 +1,21 @@
+<div class="main">
+    <div class="container">
+        <h2 class="mt-5">All Feedback Records</h2>
+        <div *ngIf="feedbacks?.length > 0" class="d-flex flex-wrap justify-content-center">
+            <div class="card m-2" style="width: 18rem; background-color: rgba(216, 237, 255, 0.434);"
+                *ngFor="let feedback of feedbacks">
+                <div class="card-body">
+                    <p class="card-text">
+                        <span *ngFor="let star of [].constructor(feedback.rating)">🐶</span>
+                    </p>
+                    <h5 class="card-subtitle mb-2">{{ feedback.user.username }}</h5>
+                    <p class="card-text fs-5">{{ feedback.message }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="text-center" *ngIf="feedbacks?.length == 0">
+            <img src="assets/backgrounds/nodata.png" alt="nodata" class="img-fluid" style="max-width: 500px;">
+            <p class="fs-4 fw-semibold no-data">No feedback found!!!</p>
+        </div>
+    </div>
+</div>

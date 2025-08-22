@@ -1,0 +1,35 @@
+<div class="main">
+    <h2 class="text-center">All Treatment Records</h2>
+    <div class="container" *ngIf="records?.length>0">
+        <div class="table-responsive">
+            <table class="table table-striped table-primary">
+                <thead>
+                    <tr>
+                        <th scope="col">SI NO</th>
+                        <th scope="col">Pet Owner Name</th>
+                        <th scope="col">Pet Name</th>
+                        <th scope="col">Appointment Date</th>
+                        <th scope="col">Reason</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let record of records; let i = index">
+                        <th scope="row">{{ i + 1 }}</th>
+                        <td>{{ record.user.username }}</td>
+                        <td>{{ record.pet.name }}</td>
+                        <td>{{ record.appointment.appointmentDate.toString().split('T')[0] }}</td>
+                        <td>{{ record.appointment.reason }}</td>
+                        <td [ngStyle]="{ color: record.status == 'completed' ? 'green' : 'red' }">
+                            {{ record.status }}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="text-center" *ngIf="records?.length==0">
+        <img src="assets/backgrounds/nodata.png" alt="nodata" style="max-width: 500px;">
+        <p class="fs-4 fw-semibold" style="color: rgb(66, 66, 119);">No records found!!!</p>
+    </div>
+</div>

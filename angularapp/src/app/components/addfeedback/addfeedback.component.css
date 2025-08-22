@@ -1,0 +1,109 @@
+.main{
+  background: linear-gradient(to right, rgb(180, 207, 221), #879cc7); 
+  background-size: contain;
+  background-position: center; 
+  background-repeat: no-repeat; 
+  padding-top: 75px;
+}
+.container {
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
+  width: 100%;
+  min-height: 95vh;
+}
+.form-container {
+  flex: 0 1 auto;
+  max-width: 500px; 
+  width: 100%; 
+  padding: 20px; 
+  border: 1px solid #ccc; 
+  border-radius: 8px; 
+  background-color: rgba(52, 60, 76, 0.743); 
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+}
+
+
+/* Other styles remain unchanged... */
+
+label {
+  font-weight: bold;
+  margin-top: 10px; 
+  display: block; 
+  color: white;
+}
+textarea {
+  width: 100%; 
+  height: 100px; 
+  padding: 10px; 
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+  resize: none; 
+  background-color: #b7b7b7;
+}
+
+input[type="number"] {
+  width: 100%;
+  padding: 10px; 
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+}
+
+button {
+  margin-top: 15px;
+  padding: 10px 15px; 
+  background-color: #FFFECB;
+  color: black; 
+  border: none; 
+  border-radius: 4px; 
+  cursor: pointer; 
+  font-size: 16px; 
+}
+
+span {
+  color: red; 
+  font-size: 12px; 
+}
+.dog-rating {
+  font-size: 24px; 
+  cursor: pointer; 
+}
+
+.dog-rating span {
+  color: #ccc; 
+  font-size: 40px;
+  transition: color 0.2s, filter 0.2s; 
+  filter: grayscale(100%); 
+}
+
+.dog-rating span.filled {
+  color: #ffcc00; 
+  filter: none; 
+}
+
+/* Hover effect */
+.dog-rating span:hover {
+  color: #ffcc00;
+}
+
+.toast-container .ngb-toast {
+  background-color: #87CEEB;
+  color: white;
+}
+
+.toast-timer {
+  height: 4px;
+  background-color: #00BFFF;
+  animation: toast-timer 2s linear forwards;
+  margin-top: 5px;
+}
+
+@keyframes toast-timer {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0;
+  }
+}

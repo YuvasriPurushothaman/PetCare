@@ -1,0 +1,52 @@
+<!-- <div>
+    <img class="top-image" src="/assets/peekingDog.png">
+</div> -->
+<div class="main">
+    <div class="container">
+        <div class="row d-flex justify-content-center align-items-center">
+            <h3 class="text-center fs-3 mt-3 mb-0" style="font-family: Oleo Script, serif;">Welcome to <span class="fw-bold fs-1" style="color: #325870;">PawsitiveVets</span></h3>
+            <p class="fw-semibold text-center mt-0 pt-0" style="color: #3258709d;">Where Every Pet Feels Pawsitively Loved</p>
+            <div class="col-md-6 col-sm-12 cont mb-1">
+                <h1 style="text-align: center; color: white;  margin-top: 12px;margin-right: 7px;">Login</h1>
+                <form class="form-group" [formGroup]="loginForm" (ngSubmit)="login()">
+                    <label class="form-label"><b>Username</b><span style="color: red;">*</span></label>
+                    <input class="form-control bg-light" formControlName="username"
+                        placeholder="Enter the username">
+                    <span style="color: red;" *ngIf="username.touched && username.invalid">
+                        Username is required
+                    </span>
+
+
+                    <label class="form-label"><b>Password</b><span style="color: red;">*</span></label>
+                    <div class="password-container">
+                        <input [type]="hidePwd ? 'password' : 'text'"
+                            class="form-control bg-light" formControlName="password" placeholder="Enter the password">
+                        <img class="toggle-password" [src]="hidePwd ? '/assets/striked-eye.png' : '/assets/eye.png'"
+                            (click)="toggleVisibility()">
+                    </div>
+
+                    <div *ngIf="password.touched && password.invalid">
+                        <span style="color: red;" *ngIf="password.errors.required">Password is required</span>
+
+                    </div>
+                    <button class="login" type="submit"><b>Login</b></button>
+                    <div style="text-align: center;">
+                        <p style="color:white; font-size: 12px;display: inline;">Not an user? <a id="clickToRegister"
+                                [routerLink]="['/register']"><b>Click here to register!</b></a></p>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-6 col-sm-12 mt-1 text-center">
+                <img src="/assets/backgrounds/login.png" alt="login" width="90%">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <ngb-toast *ngIf="showToast" [autohide]="true" [delay]="2000" (hidden)="showToast = false">
+        <div class="toast-body">
+            {{ toastMessage }}
+            <div class="toast-timer"></div>
+        </div>
+    </ngb-toast>
+</div>

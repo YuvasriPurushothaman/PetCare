@@ -1,0 +1,82 @@
+.carousel-item {
+    position: relative;
+    height: 100vh; 
+}
+
+.carousel-caption h5{
+    font-family: "Playfair Display", serif;
+    font-size: 40px;
+    font-weight: 800;
+}
+ 
+.carousel-item img {
+    z-index: 0;
+}
+
+.carousel-caption {
+    position: absolute;
+    z-index: 2;
+}
+
+.carousel-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+}
+
+.carousel-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.main{
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.8)), url("../../../assets/backgrounds/home.png");
+}
+
+.service-img1{
+    width: 200px;
+}
+
+.carousel-item{
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+ul  li a{
+    text-decoration: none;
+    color: #856a5c;;
+    cursor: pointer;
+}
+
+ul  li a:hover{
+    transform: scale(1.01);
+    transition: transform 1s ease, color 0.8s ease;
+    font-weight: 700;
+    color: #513d32;
+}
+
+@media (max-width:800px) {
+    .carousel-caption h5{
+        font-size: 30px;
+        font-weight: 700;
+    }
+    .service-img1{
+        width: 150px;
+    }
+}
+@media (max-width:500px) {
+    .service-img1{
+        width: 80px;
+    }
+}

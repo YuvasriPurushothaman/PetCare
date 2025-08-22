@@ -1,0 +1,37 @@
+<div class="main">
+  <div class="container">
+    <h2 class="mb-4">Add Feedback</h2>
+    <div class="form-container">
+      <form [formGroup]="feedbackForm" (ngSubmit)="addNewFeedback()">
+        <label>Feedback Message:</label><br>
+        <textarea formControlName="message" type="text" placeholder="Enter your feedback here..."></textarea><br>
+        <div *ngIf="message.touched && message.invalid">
+          <span *ngIf="message.errors.minlength || message.errors.required">Message must be atleast 10 Characters</span>
+
+        </div>
+        <!-- <label>Rating(1-5):</label><br>
+        <input formControlName="rating" type="number" placeholder="Enter your rating here..."  /> -->
+
+        <label>Rating:</label><br>
+        <div class="dog-rating">
+          <span (click)="setRating(1)" [class.filled]="inputRating >= 1">🐶</span>
+          <span (click)="setRating(2)" [class.filled]="inputRating >= 2">🐶</span>
+          <span (click)="setRating(3)" [class.filled]="inputRating >= 3">🐶</span>
+          <span (click)="setRating(4)" [class.filled]="inputRating >= 4">🐶</span>
+          <span (click)="setRating(5)" [class.filled]="inputRating >= 5">🐶</span>
+        </div>
+        <input type="hidden" formControlName="rating" [value]="inputRating" />
+        <button type="submit" [disabled]="feedbackForm.invalid"><b>Submit Feedback</b></button>
+
+      </form>
+    </div>
+  </div>
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <ngb-toast *ngIf="showToast" [autohide]="true" [delay]="2000" (hidden)="showToast = false">
+      <div class="toast-body">
+        {{ toastMessage }}
+        <div class="toast-timer"></div>
+      </div>
+    </ngb-toast>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+.main{
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.3)), 
+    url('../../../assets/backgrounds/aboutUs.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Playfair Display', serif;
+}
+.title{
+    padding-top: 90px;
+}
+.position-relative {
+    position: relative;
+}
+
+.map-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(152, 152, 152, 0.343); 
+    pointer-events: none; 
+}
+p{
+    font-weight: 600;
+}
